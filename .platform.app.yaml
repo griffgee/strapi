@@ -45,7 +45,7 @@ web:
   commands:
     start: |
       # Production start on all environments
-        NODE_ENV=develop yarn start
+        NODE_ENV=development yarn start
 
 # The size of the persistent disk of the application (in MB).
 disk: 1024
