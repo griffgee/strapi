@@ -22,7 +22,8 @@ dependencies:
 hooks:
     build: |
         # Install dependencies with yarn.
-        yarn --ignore-optional --frozen-lockfile 
+        #yarn --ignore-optional --frozen-lockfile 
+        yarn
         #yarn develop
         # Build Strapi (production).
         NODE_ENV=production yarn build
