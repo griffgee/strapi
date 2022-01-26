@@ -22,8 +22,8 @@ dependencies:
 hooks:
     build: |
         # Install dependencies with yarn.
-        #yarn --ignore-optional --frozen-lockfile 
-        yarn develop
+        yarn --ignore-optional --frozen-lockfile 
+        #yarn develop
         # Build Strapi (production).
         #NODE_ENV=production yarn build
         # Prepare workshop seed data.
@@ -53,7 +53,8 @@ web:
   commands:
     start: |
       # Production start on all environments
-      NODE_ENV=production yarn start
+      #NODE_ENV=production yarn start
+      yarn develop
 
 # The size of the persistent disk of the application (in MB).
 disk: 1024
