@@ -20,10 +20,17 @@ dependencies:
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-  build: |
-    # Download dependencies and build Strapi.
-    yarn
-    yarn build
+    build: |
+        # Install dependencies with yarn.
+        yarn --ignore-optional --frozen-lockfile 
+        # Build Strapi (production).
+        NODE_ENV=production yarn build
+        # Prepare workshop seed data.
+        chmod +x scripts/seed_data.sh && ./scripts/seed_data.sh
+    deploy: !include
+      type: string
+      path: scripts/seed_data.sh
+
 
 # The relationships of the application with services or other applications.
 # The left-hand side is the name of the relationship as it will be exposed
@@ -45,7 +52,7 @@ web:
   commands:
     start: |
       # Production start on all environments
-        NODE_ENV=development yarn start
+        NODE_ENV=production yarn start
 
 # The size of the persistent disk of the application (in MB).
 disk: 1024
